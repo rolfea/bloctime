@@ -3,7 +3,7 @@
     $locationProvider
       .html5Mode({
         enabled: true,
-        requireBase: fales
+        requireBase: false
       });
 
     $stateProvider
