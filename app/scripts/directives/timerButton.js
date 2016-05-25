@@ -3,7 +3,7 @@
     .module('bloctime')
     .directive('timerButton', timerButton);
 
-  function timerButton(event) {
+  function timerButton() {
     return {
       restrict: 'A',
       scope: { },
@@ -16,10 +16,11 @@
     scope.buttonState = null;
     scope.buttonText = "Start";
     scope.workSessionCounter = 0; // This will count the number of work sessions to trigger breaks later
-
+    console.log(scope);
     var workButton = $(element);
 
     scope.workButtonToggle = function() {
+      console.log(scope);
       var buttonState = scope.buttonState;
       if (buttonState == null || buttonState == "break") {
         scope.buttonText = "Start"
@@ -28,6 +29,7 @@
         scope.buttonText = "Reset Timer";
         scope.buttonState = "break";
       }
+
     }
   }
 })();

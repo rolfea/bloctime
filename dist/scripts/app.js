@@ -16,6 +16,6 @@
   }
 
   angular
-    .module('bloctime', ['ui-router', 'firebase'])
+    .module('bloctime', ['ui.router', 'firebase'])
     .config(config);
 })();
