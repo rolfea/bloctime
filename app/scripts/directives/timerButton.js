@@ -6,7 +6,9 @@
   function timerButton() {
     return {
       restrict: 'A',
-      scope: { },
+      scope: {
+          model: "=",
+      },
       link: linkFunction
     };
   }
@@ -15,9 +17,21 @@
     // default values
     scope.buttonState = null;
     scope.buttonText = "Start";
+    scope.model = {
+      buttonText: "sdfasfd",
+    };
     scope.workSessionCounter = 0; // This will count the number of work sessions to trigger breaks later
     console.log(scope);
     var workButton = $(element);
+    element.bind('click',function(e) {
+      console.log("clicked!");
+      scope.model.buttonText = "Reset";
+      scope.$apply();
+    });
+
+    scope.$watch("model", function(o, n) {
+      console.log(o, n);
+    });
 
     scope.workButtonToggle = function() {
       console.log(scope);

@@ -1,4 +1,4 @@
 <h3 class="timer">{{ home.timer }}</h3> <!--Should display timer variable -->
-<button timer-button type="button" ng-click="workButtonToggle()"></button>
+<button timer-button type="button" ng-model="model" ng-init="model.buttonText='1'">{{ model.buttonText }}</button>
 
 <!-- Do I need to load in a different template for this like the playerBar/seekBar from blocJams? -->
