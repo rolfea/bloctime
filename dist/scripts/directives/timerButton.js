@@ -1,49 +1,22 @@
 (function() {
   angular
     .module('bloctime')
-    .directive('timerButton', timerButton);
+    .directive("timerButton", TimerButtonDirective);
 
-  function timerButton() {
+  function TimerButtonDirective() {
     return {
-      restrict: 'A',
-      scope: {
-          model: "=",
-      },
-      link: linkFunction
+      controller: TimerButtonController, // how does Angular locate the appropriate controller?
+      controllerAs: "$ctrl",
+        restrict: "E",
+      templateUrl: "/templates/directives/timer_button.html"
     };
-  }
 
-  function linkFunction(scope, element, attributes) {
-    // default values
-    scope.buttonState = null;
-    scope.buttonText = "Start";
-    scope.model = {
-      buttonText: "sdfasfd",
-    };
-    scope.workSessionCounter = 0; // This will count the number of work sessions to trigger breaks later
-    console.log(scope);
-    var workButton = $(element);
-    element.bind('click',function(e) {
-      console.log("clicked!");
-      scope.model.buttonText = "Reset";
-      scope.$apply();
-    });
-
-    scope.$watch("model", function(o, n) {
-      console.log(o, n);
-    });
-
-    scope.workButtonToggle = function() {
-      console.log(scope);
-      var buttonState = scope.buttonState;
-      if (buttonState == null || buttonState == "break") {
-        scope.buttonText = "Start"
-        scope.buttonState = "working";
-      } else if (buttonState == "working") {
-        scope.buttonText = "Reset Timer";
-        scope.buttonState = "break";
-      }
-
+    function TimerButtonController() {
+        var vm = this;
+      vm.buttonText = "Start";
+      vm.handleClick = function() {
+        vm.buttonText = vm.buttonText == "Start" ? "Reset" : "Start";
+      };
     }
   }
 })();

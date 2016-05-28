@@ -1,21 +1,22 @@
-function() {
+(function() {
   angular
     .module('bloctime')
     .directive("timerButton", TimerButtonDirective);
 
   function TimerButtonDirective() {
     return {
-      controller: TimerButtonController, // should I place the buttonController in another file?
+      controller: TimerButtonController, // how does Angular locate the appropriate controller?
       controllerAs: "$ctrl",
-        restict: "E",
-      templateUrl: "timer-button.html"
+        restrict: "E",
+      templateUrl: "/templates/directives/timer_button.html"
     };
 
     function TimerButtonController() {
-      var vm = this;
+        var vm = this;
       vm.buttonText = "Start";
       vm.handleClick = function() {
-        vm.buttonText = vm.buttonText == "A" ? "B" : "A";
+        vm.buttonText = vm.buttonText == "Start" ? "Reset" : "Start";
       };
     }
   }
+})();

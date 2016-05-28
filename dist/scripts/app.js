@@ -1,4 +1,8 @@
 (function() {
+  angular
+    .module('bloctime', ['ui.router', 'firebase'])
+    .config(config);
+    
   function config($stateProvider, $locationProvider) {
     $locationProvider
       .html5Mode({
@@ -14,8 +18,4 @@
         templateUrl: '/templates/home.html'
       });
   }
-
-  angular
-    .module('bloctime', ['ui.router', 'firebase'])
-    .config(config);
 })();
