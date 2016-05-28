@@ -1,4 +1,6 @@
-<h3 class="timer">{{ home.timer }}</h3> <!--Should display timer variable -->
-<button timer-button type="button" ng-model="model" ng-init="model.buttonText='1'">{{ model.buttonText }}</button>
+<h1>Bloctime</h1>
+<timer-button></timer-button>
 
-<!-- Do I need to load in a different template for this like the playerBar/seekBar from blocJams? -->
+<script type="text/ng-template" id="timer-button.html">
+  <button ng-click='$ctrl.handleClick()'>{{ $ctrl.buttonText }}</button>
+</script>
