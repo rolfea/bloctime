@@ -7,5 +7,8 @@
     var vm = this;
     vm.timer = "25:00";
     vm.timerButton = "Start";
-  }  
+    vm.timerButtonConfig = {
+      
+    };
+  }
 })();
