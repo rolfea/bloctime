@@ -11,11 +11,17 @@
       templateUrl: "/templates/directives/timer_button.html"
     };
 
-    function TimerButtonController($interval) {
+    function TimerButtonController($interval, TIMER_LENGTHS) {
       var vm = this;
+
       vm.buttonText = "Start";
-      vm.startingTime = 1500;
-      vm.timerRemain = vm.startingTime;
+
+      vm.onBreak = false;
+      vm.workLength = TIMER_LENGTHS.WORK;
+      vm.breakLength = TIMER_LENGTHS.BREAK;
+
+      vm.timerRemain = vm.onBreak ? vm.breakLength : vm.workLength;
+
 
       vm.handleClick = function() {
         if (vm.buttonText == "Start") {
@@ -33,14 +39,15 @@
       var resetTimer = function() {
         $interval.cancel(vm.timerInterval);
         vm.buttonText = "Start";
-        vm.timerRemain = vm.startingTime;
+        vm.timerRemain = vm.onBreak ? vm.breakLength : vm.workLength;
       }
 
       var countdownTimer = function() {
         if (vm.timerRemain > 0) {
           vm.timerRemain -= 1;
         } else {
-         vm.timerRemain = "Work Session Completed!";
+         vm.timerRemain = vm.onBreak ? "Back to Work!" : "Work Session Completed!";
+         vm.onBreak = !vm.onBreak;
          $interval.cancel(vm.timerInterval);
         }
       };

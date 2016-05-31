@@ -1,2 +1,9 @@
-<h3>{{ $ctrl.timerRemain | timecode }}</h3>
+<div ng-hide='$ctrl.onBreak'>
+  <h2>Work Timer</h2>
+  <h3>{{ $ctrl.timerRemain | timecode }}</h3>
+</div>
+<div ng-show='$ctrl.onBreak'>
+  <h2>Break Timer</h2>
+  <h3>{{ $ctrl.timerRemain | timecode}}</h3>
+</div>
 <button ng-click='$ctrl.handleClick()'>{{ $ctrl.buttonText }}</button>
