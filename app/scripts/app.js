@@ -2,8 +2,9 @@
   angular
     .module('bloctime', ['ui.router', 'firebase'])
     .constant("TIMER_LENGTHS", {
-      "WORK": 1500,
-      "BREAK": 300
+      "WORK": 2,
+      "BREAK": 1,
+      "LONG_BREAK": 4
     })
     .config(config);
 
