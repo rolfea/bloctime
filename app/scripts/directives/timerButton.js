@@ -69,4 +69,8 @@
       }
     }
   }
+
+  var dingSound = new buzz.sound( "/assets/sounds/ding_sound.mp3", {
+    preload: true
+  });
 })();
