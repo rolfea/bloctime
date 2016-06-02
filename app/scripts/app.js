@@ -22,9 +22,5 @@
         controllerAs: 'home',
         templateUrl: '/templates/home.html'
       });
-  }
-
-  $scope.$watch('timerRemain', function(newVal, oldVal) {
-    console.log(newVal, oldVal);
-  });
+  }    
 })();

@@ -11,7 +11,7 @@
       templateUrl: "/templates/directives/timer_button.html"
     };
 
-    function TimerButtonController($interval, TIMER_LENGTHS) {
+    function TimerButtonController($interval, $scope, TIMER_LENGTHS) {
       var vm = this;
 
       vm.buttonText = "Start";
@@ -67,10 +67,22 @@
         vm.onBreak = !vm.onBreak;
         $interval.cancel(vm.timerInterval);
       }
+
+      var returnTimerRemain = function() {
+        return vm.timerRemain;
+      };
+
+      $scope.$watch(returnTimerRemain, function(newVal, oldVal) {
+        if (newVal === 0) {
+          dingSound.play();
+        }
+      });
+
+      var dingSound = new buzz.sound( "/assets/sounds/ding_sound.mp3", {
+        preload: true
+      });
     }
   }
 
-  var dingSound = new buzz.sound( "/assets/sounds/ding_sound.mp3", {
-    preload: true
-  });
+
 })();
