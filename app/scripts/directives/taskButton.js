@@ -19,7 +19,6 @@
 
       vm.allTasks = completedTasksFactory.all;
 
-
       vm.saveTaskAsCompleted = function() {
         completedTasksFactory.all.$add({"task":vm.completedTask});
       }
