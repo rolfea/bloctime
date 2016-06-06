@@ -7,8 +7,9 @@
     return {
       controller: TimerButtonController,
       controllerAs: "$ctrl",
-        restrict: "E",
-      templateUrl: "/templates/directives/timer_button.html"
+      restrict: "E",
+      templateUrl: "/templates/directives/timer_button.html",
+      scope: {}
     };
 
     function TimerButtonController($interval, $scope, TIMER_LENGTHS) {
@@ -81,6 +82,7 @@
       var dingSound = new buzz.sound( "/assets/sounds/ding_sound.mp3", {
         preload: true
       });
+
     }
   }
 
