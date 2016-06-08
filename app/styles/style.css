@@ -1,0 +1,15 @@
+div.timer {
+  display: inline-block;
+  position: relative;
+  border-width: 3px solid;
+  padding: 5px 10px 5px 10px;
+  background-color: #738CA6;
+}
+
+div.task {
+  display: inline-block;
+  position: relative;
+  border-width: 3px solid;
+  padding: 5px 10px 5px 10px;
+  background-color: #4A6B8A;
+}

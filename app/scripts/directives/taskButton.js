@@ -15,12 +15,13 @@
     function TaskButtonController(completedTasksFactory) {
       var vm = this;
 
-      vm.completedTask = "Test";
+      vm.completedTask = "";
 
       vm.allTasks = completedTasksFactory.all;
 
       vm.saveTaskAsCompleted = function() {
         completedTasksFactory.all.$add({"task":vm.completedTask});
+        vm.completedTask = "";
       }
     }
   }
